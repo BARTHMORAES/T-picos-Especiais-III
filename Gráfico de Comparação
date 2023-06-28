@@ -1,0 +1,29 @@
+!pip install yfinance --upgrade --no-cache-dir
+import yfinance as yf
+yf.pdr_override()
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+--------------------------
+tickers = ["ITUB3.SA", "BBAS3.SA","EGIE3.SA","TAEE3.SA", "ABEV3.SA"] 
+
+carteira = yf.download(tickers, start = '2013-01-02', end = '2023-01-02')['Adj Close']
+
+ibov = yf.download("^BVSP", start = '2013-01-02', end = '2023-01-02')['Adj Close']
+carteira
+ibov
+sns.set()
+carteira.plot(figsize=(18,8))
+sns.set()
+ibov.plot(figsize=(18,8))
+------------------------------------
+carteira_normalizada = (carteira / carteira.iloc[0])*1000
+carteira_normalizada
+carteira_normalizada.plot(figsize=(18,8))
+----------------------------------------
+ibov_normalizado = (ibov / ibov.iloc[0])*1000
+ibov_normalizado
+ibov
+carteira_normalizada.plot(figsize=(18,8),label='Miinha Carteira')
+ibov_normalizado.plot(label='IBOV')
+plt.legend()
