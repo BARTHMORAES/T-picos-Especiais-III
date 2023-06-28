@@ -1,0 +1,17 @@
+!pip install fundamentus
+!pip install requests-cache
+import fundamentus
+import requests_cache
+import requests
+import time, logging
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+-------------------------
+df = fundamentus.get_resultado() 
+df
+---------------------------------
+Filtro1= df[(df.pl < 10) & (df.pl > 0) & (df.mrgebit > 0.10) & (df.dy > 0.10) & (df.roe > 0.15) & (df.mrgliq > 0.10 ) & (df.cotacao > 10)]
+df.loc[(df.roe > 0.15) & (df.dy > 0.05) & (df.pl < 10)] # ITUB3 e BBAS3 açãoes de banco escolhidas de acordo com esses parametros 
+df.loc[(df.roe > 0.15) & (df.dy > 0.05) & (df.mrgebit > 0.10) & (df.mrgliq > 0.10 ) & (df.pl < 15)] # EGIE3 e TAEE3 açãoes de energia escolhidas de acordo com esses parametros
+df.loc[(df.roe > 0.15) & (df.dy > 0.05) & (df.mrgebit > 0.10) & (df.mrgliq > 0.15)] # ABEV3 
