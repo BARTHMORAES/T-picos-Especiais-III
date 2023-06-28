@@ -1,0 +1,24 @@
+!pip install matplotlib
+import matplotlib.pyplot as plt
+--------------------------------
+labels = ["Renda Variavel","Renda Fixa"]
+vals = [5,5]
+colors = ["#737373","#7ed957"]
+fig, ax = plt.subplots(figsize=(12,5))
+
+explode = (0.1, 0)
+
+ax.pie(vals, labels=labels, autopct="%.1f", shadow=True, startangle=60, colors=colors, explode=explode)
+ax.set_title("Divisão da Carteira", fontsize=18)
+plt.show()
+---------------------------
+labels = ["Bancário","Energia", "Bebida","Reserva de emergência","Reserva de oportunidade", "Tesouro Selic"]
+vals = [20,20,10,10,10,20]
+colors = ["#545454","#737373","#a6a6a6","#7CFC00","#00bf63","#7ed957", "limegreen"]
+fig, ax = plt.subplots(figsize=(12,5))
+
+explode = (0.1, 0)
+
+ax.pie(vals, labels=labels, autopct="%.1f",shadow=True, startangle=60, colors=colors)
+ax.set_title("Divisão da Carteira", fontsize=18)
+plt.show()
